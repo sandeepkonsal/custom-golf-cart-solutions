@@ -189,7 +189,10 @@ nav {
 
 /* ===== HERO ===== */
 .hero {
-  background: linear-gradient(135deg, #080d24 0%, #0f1a45 50%, #080e2a 100%);
+  background-image: url('golf-cart-hero.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
   min-height: 92vh;
   display: flex;
   align-items: center;
@@ -198,13 +201,17 @@ nav {
   padding: 80px 5%;
 }
 
+/* Dark overlay so text stays crisp over the photo */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 70% 50%, rgba(200,21,21,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(22,32,80,0.3) 0%, transparent 50%);
+  background: linear-gradient(
+    135deg,
+    rgba(22,32,80,0.82) 0%,
+    rgba(22,32,80,0.55) 50%,
+    rgba(14,21,48,0.70) 100%
+  );
 }
 
 .hero-grid {
