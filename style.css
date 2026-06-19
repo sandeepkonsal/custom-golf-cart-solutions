@@ -41,7 +41,36 @@ img {
 
 /* ===== NAVIGATION ===== */
 nav {
-  background: var(--dark);
+  background-color: #111111;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.06) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.06) 1px,
+      transparent 1px,
+      transparent 5px
+    );
   padding: 0 5%;
   position: sticky;
   top: 0;
@@ -49,8 +78,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+  height: 72px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.6);
+  border-bottom: 3px solid var(--gold);
 }
 
 .nav-logo {
