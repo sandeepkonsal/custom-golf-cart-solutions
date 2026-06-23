@@ -68,7 +68,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 100px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.6);
   border-bottom: 3px solid var(--gold);
 }
