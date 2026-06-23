@@ -542,6 +542,8 @@ section {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .kart-card:hover {
@@ -574,6 +576,13 @@ section {
 
 .kart-info {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kart-info a.btn {
+  margin-top: auto;
 }
 
 .kart-info h3 {
