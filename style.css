@@ -58,8 +58,8 @@ img {
 /* ===== NAVIGATION ===== */
 nav {
   background-image: url('checker-plate.jpg');
-  background-size: auto 100%;
-  background-repeat: repeat-x;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   padding: 0 5%;
   position: sticky;
