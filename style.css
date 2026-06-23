@@ -93,9 +93,9 @@ nav {
 .nav-logo-text .brand {
   color: var(--gold);
   font-family: 'Batman Forever', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.05rem;
   font-weight: normal;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 .nav-logo-text .tagline-small {
