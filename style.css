@@ -180,7 +180,7 @@ nav {
 .btn-green:hover {
   background: var(--green-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(22,32,80,0.35);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
 /* ===== SECTION HEADERS ===== */
@@ -275,11 +275,12 @@ nav {
 }
 
 .hero h1 {
-  font-size: 3.2rem;
+  font-size: 3.8rem;
   font-weight: 900;
   color: var(--white);
-  line-height: 1.1;
+  line-height: 1.05;
   margin-bottom: 20px;
+  letter-spacing: -1px;
 }
 
 .hero h1 span {
@@ -439,7 +440,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #d0e8d8;
+  color: #cccccc;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -466,16 +467,21 @@ section {
 
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   margin-top: 50px;
+  border-top: 1px solid #e8e8e8;
+  border-left: 1px solid #e8e8e8;
 }
 
 .why-card {
-  padding: 36px 28px;
-  border-radius: 12px;
-  border: 1px solid #e8e8e8;
-  transition: all 0.3s;
+  padding: 32px 28px;
+  border-right: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  transition: background 0.2s;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
   position: relative;
   overflow: hidden;
 }
@@ -483,44 +489,50 @@ section {
 .why-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
+  top: 0; left: 0;
+  width: 4px; bottom: 0;
   background: var(--gold);
-  transform: scaleX(0);
-  transition: transform 0.3s;
+  transform: scaleY(0);
+  transition: transform 0.25s;
+  transform-origin: top;
 }
 
 .why-card:hover {
-  border-color: var(--gold);
-  box-shadow: 0 12px 40px rgba(255,94,20,0.15);
-  transform: translateY(-4px);
+  background: rgba(255,94,20,0.03);
 }
 
 .why-card:hover::before {
-  transform: scaleX(1);
+  transform: scaleY(1);
 }
 
 .why-icon {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   background: rgba(255,94,20,0.1);
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  flex-shrink: 0;
   color: var(--gold);
+  transition: background 0.2s;
 }
 
+.why-card:hover .why-icon {
+  background: rgba(255,94,20,0.18);
+}
+
+.why-card-text {}
+
 .why-card h3 {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .why-card p {
   color: var(--gray);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.65;
 }
 
@@ -608,7 +620,12 @@ section {
 
 /* ===== CTA BANNER ===== */
 .cta-banner {
-  background: linear-gradient(135deg, var(--green) 0%, #000000 100%);
+  background-color: #111111;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 10px);
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
   padding: 80px 5%;
   text-align: center;
   position: relative;
@@ -619,7 +636,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(255,94,20,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(255,94,20,0.1) 0%, transparent 65%);
 }
 
 .cta-banner > * { position: relative; z-index: 1; }
@@ -649,18 +666,24 @@ section {
 
 /* ===== PAGE HERO (inner pages) ===== */
 .page-hero {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-  padding: 80px 5%;
+  background-color: #111111;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 5px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 5px);
+  padding: 72px 5%;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 3px solid var(--gold);
 }
 
 .page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(255,94,20,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 120%, rgba(255,94,20,0.12) 0%, transparent 60%);
 }
 
 .page-hero > * { position: relative; z-index: 1; }
@@ -773,13 +796,13 @@ section {
 .value-icon {
   width: 56px;
   height: 56px;
-  background: rgba(22,32,80,0.08);
+  background: rgba(255,94,20,0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 16px;
-  color: var(--green);
+  color: var(--gold);
 }
 
 .value-card h3 {
@@ -868,11 +891,32 @@ section {
 
 .kart-full-img {
   height: 240px;
-  background: linear-gradient(135deg, #080e2a, #162050);
+  background: linear-gradient(135deg, #111111, #222222);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+/* shared class used in golf-carts.html */
+.cart-full-img {
+  height: 240px;
+  background: linear-gradient(135deg, #111111, #222222);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
 }
 
 .kart-full-body {
@@ -1110,9 +1154,13 @@ section {
 }
 
 .map-placeholder {
-  background: linear-gradient(135deg, #080e2a, #162050);
-  border-radius: 16px;
-  height: 300px;
+  background-color: #111111;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px, transparent 1px, transparent 10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255,94,20,0.25);
+  height: 260px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1169,7 +1217,7 @@ section {
 
 .map-pin span {
   font-size: 0.85rem;
-  color: #a0c0aa;
+  color: #aaaaaa;
 }
 
 /* ===== FOOTER ===== */
@@ -1249,7 +1297,17 @@ footer {
   .hero h1 { font-size: 2.2rem; }
   .page-hero h1 { font-size: 2rem; }
 
-  .why-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
+    border-left: none;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .why-card {
+    border-left: none;
+    border-right: none;
+  }
+
   .karts-grid,
   .team-grid,
   .services-grid {
@@ -1281,6 +1339,10 @@ footer {
   .services-grid,
   .values-grid {
     grid-template-columns: 1fr;
+  }
+
+  .why-card {
+    border-right: none;
   }
 
   .footer-grid { grid-template-columns: 1fr; }
