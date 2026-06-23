@@ -1,4 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Batman Forever';
+  src: url('batmfa__.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Batman Forever Outline';
+  src: url('batmfo__.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ===== GLOBAL STYLES ===== */
 * {
@@ -102,9 +118,9 @@ nav {
 
 .nav-logo-text .brand {
   color: var(--gold);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.65rem;
-  font-weight: 400;
+  font-family: 'Batman Forever', sans-serif;
+  font-size: 1.5rem;
+  font-weight: normal;
   letter-spacing: 2px;
 }
 
