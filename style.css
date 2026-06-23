@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Bebas+Neue&display=swap');
 
 /* ===== GLOBAL STYLES ===== */
 * {
@@ -90,8 +90,8 @@ nav {
 }
 
 .nav-logo .logo-icon {
-  width: 42px;
-  height: 42px;
+  width: 64px;
+  height: 64px;
 }
 
 .nav-logo-text {
@@ -102,16 +102,14 @@ nav {
 
 .nav-logo-text .brand {
   color: var(--gold);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 .nav-logo-text .tagline-small {
-  color: #aaa;
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  display: none;
 }
 
 .nav-links {
@@ -1575,9 +1573,8 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
 @media (max-width: 480px) {
   /* NAV */
-  .nav-logo-text .brand { font-size: 0.82rem; }
-  .nav-logo-text .tagline-small { display: none; }
-  .logo-icon { width: 42px !important; height: 42px !important; }
+  .nav-logo-text .brand { font-size: 1.2rem; }
+  .logo-icon { width: 48px !important; height: 48px !important; }
 
   /* HERO */
   .hero { padding: 48px 4%; }
