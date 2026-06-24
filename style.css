@@ -1454,6 +1454,12 @@ footer {
   color: var(--gold);
 }
 
+.footer-map {
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding: 0 5%;
+}
+
 .footer-bottom {
   max-width: 1200px;
   margin: 28px auto 0;
