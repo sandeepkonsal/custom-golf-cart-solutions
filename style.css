@@ -1405,7 +1405,7 @@ section {
 
 /* ===== FOOTER ===== */
 footer {
-  background: var(--dark);
+  background: #0d1a3a;
   color: #bbb;
   padding: 60px 5% 30px;
 }
