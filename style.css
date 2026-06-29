@@ -1723,6 +1723,156 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
   .why-icon { flex-shrink: 0; }
 }
 
+/* ===== PHOTO GALLERY (homepage) ===== */
+.gallery-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.gtab {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: #aaa;
+  font-family: var(--font);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 9px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gtab:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.gtab.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.pg-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #1a1a1a;
+  aspect-ratio: 4/3;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.pg-item.hidden {
+  display: none;
+}
+
+.pg-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pg-item:hover img {
+  transform: scale(1.07);
+}
+
+.pg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.pg-item:hover .pg-overlay {
+  opacity: 1;
+}
+
+.pg-overlay span {
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255,94,20,0.85);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+.lightbox p {
+  color: #ccc;
+  font-size: 0.88rem;
+  margin-top: 14px;
+  letter-spacing: 0.5px;
+}
+
+.lb-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lb-close:hover { opacity: 1; }
+
+@media (max-width: 768px) {
+  .pg-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+}
+
+@media (max-width: 480px) {
+  .pg-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .gtab { font-size: 0.78rem; padding: 8px 16px; }
+}
+
 /* FLOATING WHATSAPP */
 .whatsapp-float {
   position: fixed;

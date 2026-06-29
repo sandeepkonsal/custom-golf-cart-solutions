@@ -189,40 +189,84 @@
   </section>
 
   <!-- PHOTO GALLERY -->
-  <section style="background:#111; padding:70px 5%;">
+  <section style="background:#0d0d0d; padding:80px 5%;">
     <div class="container">
-      <div class="text-center" style="margin-bottom:40px;">
-        <p class="section-label" style="color:#FF5E14;">Our Builds</p>
-        <h2 class="section-title" style="color:#fff;">From the Workshop &amp; the Course</h2>
+      <div class="text-center" style="margin-bottom:16px;">
+        <p class="section-label" style="color:#FF5E14;">Our Models</p>
+        <h2 class="section-title" style="color:#fff;">Cart Gallery</h2>
         <div class="divider center"></div>
+        <p class="section-subtitle" style="color:#aaa; margin:0 auto 36px;">Browse our 2-Seater and 2+2 Seater builds from every angle.</p>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item gallery-hero">
-          <img src="cart-oncourse.jpg" alt="Custom golf cart on a South African golf course" />
-          <div class="gallery-overlay"><span>On the Course</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="cart-wheel.jpg" alt="Custom alloy wheel with LED lighting" />
-          <div class="gallery-overlay"><span>Custom Wheels &amp; LEDs</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="cart-seats-diamond.jpg" alt="Premium diamond-stitch seat upholstery" />
-          <div class="gallery-overlay"><span>Premium Upholstery</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="cart-dashboard.jpg" alt="Digital dashboard display" />
-          <div class="gallery-overlay"><span>Digital Dashboard</span></div>
-        </div>
-        <div class="gallery-item">
-          <img src="cart-offroad.jpg" alt="Off-road golf cart with bull bar" />
-          <div class="gallery-overlay"><span>Off-Road Build</span></div>
-        </div>
+
+      <!-- FILTER TABS -->
+      <div class="gallery-tabs">
+        <button class="gtab active" data-filter="all">All</button>
+        <button class="gtab" data-filter="two-seater">2-Seater</button>
+        <button class="gtab" data-filter="two-plus-two">2+2 Seater</button>
       </div>
-      <div style="text-align:center; margin-top:36px;">
-        <a href="golf-carts.html" class="btn btn-gold">See All Our Carts</a>
+
+      <!-- GALLERY GRID -->
+      <div class="pg-grid">
+
+        <div class="pg-item two-seater" onclick="openLight(this)">
+          <img src="cart-2seater-new.jpg" alt="2-Seater Golf Cart – Showroom" loading="lazy" />
+          <div class="pg-overlay"><span>2-Seater · Showroom</span></div>
+        </div>
+
+        <div class="pg-item two-seater" onclick="openLight(this)">
+          <img src="cart-2seater-front.jpg" alt="2-Seater Golf Cart – Front View" loading="lazy" />
+          <div class="pg-overlay"><span>2-Seater · Front View</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-showroom.jpg" alt="2+2 Seater Golf Cart – Showroom" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Showroom</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-main.jpg" alt="2+2 Seater Golf Cart – Side View" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Side View</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-rear.jpg" alt="2+2 Seater Golf Cart – Rear Angle" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Rear Angle</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-factory1.jpg" alt="2+2 Seater Golf Cart – Factory" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Factory Floor</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-factory2.jpg" alt="2+2 Seater Golf Cart – Rear" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Rear</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-factory3.jpg" alt="2+2 Seater Golf Cart – Side" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Side</span></div>
+        </div>
+
+        <div class="pg-item two-plus-two" onclick="openLight(this)">
+          <img src="cart-2plus2-factory4.jpg" alt="2+2 Seater Golf Cart – Profile" loading="lazy" />
+          <div class="pg-overlay"><span>2+2 Seater · Profile</span></div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:44px;">
+        <a href="golf-carts.html" class="btn btn-gold">View Full Specs &amp; Pricing</a>
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLight()">
+    <button class="lb-close" onclick="closeLight()">&times;</button>
+    <img id="lb-img" src="" alt="" />
+    <p id="lb-caption"></p>
+  </div>
 
   <!-- CTA BANNER -->
   <section class="cta-banner">
@@ -322,6 +366,38 @@
     }, { threshold: 0.5 });
     const heroStats = document.querySelector('.hero-stats');
     if (heroStats) statsObserver.observe(heroStats);
+
+    // Gallery filter tabs
+    document.querySelectorAll('.gtab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.gtab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.pg-item').forEach(item => {
+          if (filter === 'all' || item.classList.contains(filter)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Lightbox
+    function openLight(el) {
+      const img = el.querySelector('img');
+      const caption = el.querySelector('.pg-overlay span');
+      document.getElementById('lb-img').src = img.src;
+      document.getElementById('lb-img').alt = img.alt;
+      document.getElementById('lb-caption').textContent = caption ? caption.textContent : '';
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLight() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLight(); });
   </script>
 
   <!-- FLOATING WHATSAPP -->
