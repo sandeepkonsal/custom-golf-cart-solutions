@@ -1535,16 +1535,43 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
   nav {
     flex-wrap: wrap;
-    padding: 0 5%;
+    padding: 0 4%;
     position: sticky;
     height: auto;
-    min-height: 70px;
+    min-height: 80px;
   }
 
-  .nav-logo, .nav-toggle {
-    height: 70px;
+  .nav-logo {
+    height: 80px;
     display: flex;
     align-items: center;
+    gap: 12px;
+    flex: 1;
+  }
+
+  .nav-toggle {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo .logo-icon {
+    width: 62px !important;
+    height: 62px !important;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px rgba(255,94,20,0.5);
+  }
+
+  .nav-logo-text .brand {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    line-height: 1.3;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .nav-links {
@@ -1554,14 +1581,14 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
     background: #111111;
     padding: 8px 0 16px;
     gap: 0;
-    border-top: 1px solid rgba(255,94,20,0.3);
+    border-top: 1px solid rgba(255,94,20,0.4);
     order: 3;
     position: absolute;
-    top: 70px;
+    top: 80px;
     left: 0;
     right: 0;
     z-index: 999;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
   }
 
   nav.nav-open .nav-links {
@@ -1570,10 +1597,19 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
   .nav-links li a {
     display: block;
-    padding: 13px 5%;
+    padding: 14px 6%;
     font-size: 1rem;
-    color: #ccc;
+    font-weight: 600;
+    color: #dddddd;
     border-bottom: 1px solid rgba(255,255,255,0.07);
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links li a:hover,
+  .nav-links li a.active {
+    color: var(--gold);
+    background: rgba(255,94,20,0.08);
+    padding-left: 8%;
   }
 
   .nav-links li:last-child a { border-bottom: none; }
@@ -1636,8 +1672,8 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
 @media (max-width: 480px) {
   /* NAV */
-  .nav-logo-text .brand { font-size: 0.85rem; letter-spacing: 0.8px; }
-  .logo-icon { width: 48px !important; height: 48px !important; }
+  .nav-logo-text .brand { font-size: 0.82rem; letter-spacing: 0.3px; }
+  .nav-logo .logo-icon { width: 54px !important; height: 54px !important; }
 
   /* HERO */
   .hero { padding: 48px 4%; }
