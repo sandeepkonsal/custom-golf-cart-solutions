@@ -1491,7 +1491,7 @@ footer {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--dark);
+  background: #ffffff;
   border-radius: 2px;
   transition: transform 0.25s, opacity 0.25s;
 }
@@ -1536,18 +1536,32 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
   nav {
     flex-wrap: wrap;
     padding: 0 5%;
-    position: relative;
+    position: sticky;
+    height: auto;
+    min-height: 70px;
+  }
+
+  .nav-logo, .nav-toggle {
+    height: 70px;
+    display: flex;
+    align-items: center;
   }
 
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: #fff;
-    padding: 16px 0 20px;
+    background: #111111;
+    padding: 8px 0 16px;
     gap: 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(255,94,20,0.3);
     order: 3;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
   }
 
   nav.nav-open .nav-links {
@@ -1556,9 +1570,10 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
   .nav-links li a {
     display: block;
-    padding: 12px 0;
+    padding: 13px 5%;
     font-size: 1rem;
-    border-bottom: 1px solid #f0f0f0;
+    color: #ccc;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
 
   .nav-links li:last-child a { border-bottom: none; }
@@ -1608,6 +1623,12 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
   .faq-grid,
   [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
 
+  /* HERO STATS */
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+
+  /* FEATURES STRIP */
+  .features-strip { gap: 24px; padding: 16px 5%; }
+
   /* FOOTER */
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
@@ -1615,7 +1636,7 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
 @media (max-width: 480px) {
   /* NAV */
-  .nav-logo-text .brand { font-size: 1.2rem; }
+  .nav-logo-text .brand { font-size: 0.85rem; letter-spacing: 0.8px; }
   .logo-icon { width: 48px !important; height: 48px !important; }
 
   /* HERO */
@@ -1632,8 +1653,14 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 
   /* GRIDS */
   .values-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
   .kart-specs { flex-wrap: wrap; }
   .kart-specs-list { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .features-strip { gap: 16px; }
+
+  /* CONTACT FORM */
+  .contact-form-box { padding: 24px 18px; }
 
   /* GALLERY */
   .gallery-grid {
@@ -1692,4 +1719,14 @@ nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(
 @keyframes wa-pulse {
   0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
   50%       { box-shadow: 0 4px 32px rgba(37,211,102,0.75); }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    padding: 14px;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-float span { display: none; }
 }
